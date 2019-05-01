@@ -13,6 +13,20 @@ export const createProject = (project) => {
   }
 };
 
+export const createTask = (data) => {
+  return async function(dispatch) {
+    try {
+      dispatch({ type: 'CREATE_TASK/loading' });
+      const task = await api.createTask(data);
+      dispatch({ type: 'CREATE_TASK/success', payload: task });
+      await fetchProject(data.projectId)(dispatch);
+    } catch (e) {
+      dispatch({ type: 'CREATE_TASK/error' });
+      console.error(e);
+    }
+  }
+};
+
 export const fetchProjects = () => {
   return async function(dispatch) {
     try {
@@ -39,3 +53,16 @@ export const fetchProject = (id) => {
   }
 };
 
+
+export const completeTask = (id, val) => {
+  return async function(dispatch) {
+    try {
+      dispatch({ type: 'COMPLETE_TASK/loading' });
+      const task = await api.completeTask(id, val);
+      dispatch({ type: 'COMPLETE_TASK/success', payload: task });
+    } catch (e) {
+      dispatch({ type: 'COMPLETE_TASK/error' });
+      console.error(e);
+    }
+  }
+};
