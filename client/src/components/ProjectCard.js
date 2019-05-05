@@ -13,7 +13,7 @@ const ProjectCard = ({
   deadline,
   tasks
 }) => {
-  const isDone = tasks.reduce((a, v) => a + (v.done ? 1 : 0), 0) > 0;
+  const isDone = tasks.reduce((a, v) => a + (v.done ? 0 : 1), 0) === 0;
 
   return (
     <div className={classnames(styles.card, { [styles.isDone]: isDone })}>
