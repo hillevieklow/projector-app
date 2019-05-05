@@ -62,7 +62,10 @@ class Project extends React.Component {
               onToggleTask={completeTask}
           />
           <NewTaskForm
-              handleCreateTask={createTask}
+              handleCreateTask={(v) => {
+                this.setTaskValue('');
+                createTask(v);
+              }}
               handleSetValue={this.setTaskValue}
               value={this.state.task}
               projectId={this.props.match.params.id}
