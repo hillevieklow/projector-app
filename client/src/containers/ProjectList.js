@@ -36,6 +36,7 @@ class ProjectListContainer extends React.Component {
                   key={p.id}
                   name={p.description}
                   deadline={p.deadline}
+                  tasks={p.tasks}
               />
           ))}
         </div>
