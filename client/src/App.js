@@ -14,18 +14,18 @@ import {Container, Header} from "semantic-ui-react";
 class App extends Component {
   render() {
     return (
-        <Provider store={store}>
-          <Container>
-            <Header className={styles.header}>
-              Projector -- simple project management
-            </Header>
-            <Router>
-              <Route exact path="/" component={ProjectListContainer} />
-              <Route exact path="/new-project" component={NewProjectContainer} />
-              <Route path="/project/:id" component={ProjectContainer} />
-            </Router>
-          </Container>
-        </Provider>
+      <Provider store={store}>
+        <Container>
+          <Header className={styles.header}>
+            Projector -- simple project management
+          </Header>
+          <Router>
+            <Route exact path="/" component={ProjectListContainer} />
+            <Route exact path="/new-project" component={NewProjectContainer} />
+            <Route path="/project/:id" component={ProjectContainer} />
+          </Router>
+        </Container>
+      </Provider>
     );
   }
 }
