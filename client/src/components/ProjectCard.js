@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 
 import { Card } from 'semantic-ui-react';
 import moment from 'moment';
@@ -10,8 +11,12 @@ const ProjectCard = ({
   id,
   name,
   deadline,
-}) => (
-    <div className={styles.card}>
+  tasks
+}) => {
+  const isDone = tasks.reduce((a, v) => a + (v.done ? 1 : 0), 0) > 0;
+
+  return (
+    <div className={classnames(styles.card, { [styles.isDone]: isDone })}>
       <Link to={`/project/${id}`}>
         <Card>
           <Card.Content>
@@ -21,6 +26,7 @@ const ProjectCard = ({
         </Card>
       </Link>
     </div>
-);
+  )
+};
 
 export default ProjectCard;

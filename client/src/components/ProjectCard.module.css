@@ -2,3 +2,7 @@
     display: block;
     margin-bottom: 1rem;
 }
+
+.isDone {
+	opacity: 0.25;
+}
