@@ -9,6 +9,7 @@ class ProjectInfo extends React.Component {
     return (
         <div>
           <h1>{project.description}</h1>
+          <h2>{completedTasks / tasks === 1 && 'Completed'}</h2>
           <p>Deadline {moment(project.deadline).format('MM-DD-YYYY')}</p>
           <h2>Progress</h2>
           <Progress percent={completedTasks / tasks * 100} />
